@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BSMAS Test</title>
+  <style>
+    *{
+      background-color: #050505;
+      color: white;
+    }
+    .question-block {
+      display: none;
+    }
+
+    .question-block.active {
+      display: block;
+    }
+
+    .error {
+      color: rgb(255, 106, 143);
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .question-block {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .question-block.active {
+      display: block;
+    }
+
+    .question-block h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .question-block p {
+      margin-bottom: 15px;
+    }
+
+    .question-block input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .error {
+      color: rgb(255, 106, 143);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    #results {
+      display: none;
+      margin-top: 30px;
+    }
+
+    #results h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #score {
+      font-size: 18px;
+    }
+
+    button {
+      color: #fff;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    background-color: #fff;
+    background-image: linear-gradient(326deg, #ff6049, #7448e9);
+    border: 0 solid #fff;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-weight: 700;
+    line-height: 20px;
+    transition: all .4s;
+    }
+
+    
+    input[type="radio"] {
+  margin-right: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 106, 143);
+  outline: none;
+}
+
+input[type="radio"]:checked {
+  background-color: #924968;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+input[type="radio"]:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+input[type="radio"]:hover::before {
+  background-color: #000;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+}
+
+label {
+  color: #fff;
+  background-color: #050505;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <h1>BSMAS Test</h1>
+
+  <div id="questions" class="questions">
+    <div class="question-block active" id="question1">
+      <h2>1. Provodite mnogo vremena razmišljajući o socijalnim mrežama i planiranju?</h2>
+      <input type="radio" name="q1" value="1"> Veoma rijetko<br>
+      <input type="radio" name="q1" value="2"> Rijetko<br>
+      <input type="radio" name="q1" value="3"> Ponekad<br>
+      <input type="radio" name="q1" value="4"> Često<br>
+      <input type="radio" name="q1" value="5"> Veoma često<br>
+      <p id="error1" class="error"></p>
+    </div>
+
+    <div class="question-block" id="question2">
+      <h2>2. Osjećate potrebu da sve više koristite društvene mreže?</h2>
+      <input type="radio" name="q2" value="1"> Veoma rijetko<br>
+      <input type="radio" name="q2" value="2"> Rijetko<br>
+      <input type="radio" name="q2" value="3"> Ponekad<br>
+      <input type="radio" name="q2" value="4"> Često<br>
+      <input type="radio" name="q2" value="5"> Veoma često<br>
+      <p id="error2" class="error"></p>
+    </div>
+
+    <div class="question-block" id="question3">
+      <h2>3. Koristite društvene mreže da biste zaboravili na lične probleme?</h2>
+      <input type="radio" name="q3" value="1"> Veoma rijetko<br>
+      <input type="radio" name="q3" value="2"> Rijetko<br>
+      <input type="radio" name="q3" value="3"> Ponekad<br>
+      <input type="radio" name="q3" value="4"> Često<br>
+      <input type="radio" name="q3" value="5"> Veoma često<br>
+      <p id="error3" class="error"></p>
+    </div>
+
+    <div class="question-block" id="question4">
+      <h2>4. Bezuspješno ste pokušali da smanjite upotrebu društvenih medija?</h2>
+      <input type="radio" name="q4" value="1"> Veoma rijetko<br>
+      <input type="radio" name="q4" value="2"> Rijetko<br>
+      <input type="radio" name="q4" value="3"> Ponekad<br>
+      <input type="radio" name="q4" value="4"> Često<br>
+      <input type="radio" name="q4" value="5"> Veoma često<br>
+      <p id="error4" class="error"></p>
+    </div>
+
+    <div class="question-block" id="question5">
+      <h2>5. Postajete nemirni ili uznemireni ako vam je zabranjeno korišćenje društvenih medija?</h2>
+      <input type="radio" name="q5" value="1"> Veoma rijetko<br>
+      <input type="radio" name="q5" value="2"> Rijetko<br>
+      <input type="radio" name="q5" value="3"> Ponekad<br>
+      <input type="radio" name="q5" value="4"> Često<br>
+      <input type="radio" name="q5" value="5"> Veoma često<br>
+      <p id="error5" class="error"></p>
+    </div>
+
+    <div class="question-block" id="question6">
+      <h2>6. Koliko koristite društvene mreže da je to imalo negativan uticaj na vaš posao/studije?</h2>
+      <input type="radio" name="q6" value="1">Veoma rijetko <br>
+      <input type="radio" name="q6" value="2"> Rijetko<br>
+      <input type="radio" name="q6" value="3"> Ponekad<br>
+      <input type="radio" name="q6" value="4"> Često<br>
+      <input type="radio" name="q6" value="5"> Veoma često<br>
+      <p id="error6" class="error"></p>
+    </div>
+
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div id="results" style="display: none;">
+    <h2>Rezultat</h2>
+    <div id="score" style="background-image: linear-gradient(326deg, #ff6049, #7448e9);"></div>
+  </div>
+
+  <script>
+    let currentQuestion = 1;
+    let totalQuestions = 6;
+    let scores = [];
+
+    function nextQuestion() {
+      // provjerava
+      const selectedOption = document.querySelector('input[name="q' + currentQuestion + '"]:checked');
+      if (!selectedOption) {
+        document.getElementById('error' + currentQuestion).innerText = 'Izaberite opciju!';
+        return;
+      } else {
+        document.getElementById('error' + currentQuestion).innerText = '';
+      }
+
+      
+      scores.push(parseInt(selectedOption.value));
+
+      // sakrij
+      document.getElementById('question' + currentQuestion).classList.remove('active');
+
+    
+      currentQuestion++;
+      if (currentQuestion <= totalQuestions) {
+        document.getElementById('question' + currentQuestion).classList.add('active');
+      } else {
+        // prikaz
+        document.getElementById('questions').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        calculateScore();
+      }
+    }
+
+    function calculateScore() {
+    
+      let totalScore = scores.reduce((a, b) => a + b, 0);
+
+      
+      let addictionLevel = "";
+      if (totalScore <= 10) {
+        addictionLevel = "Nije prisutna zavisnost";
+      } else if (totalScore <= 20) {
+        addictionLevel = "Blaga zavisnost";
+      } else if (totalScore <= 30) {
+        addictionLevel = "Umjerena zavisnost";
+      } else {
+        addictionLevel = "Jaka zavisnost";
+      }
+
+     
+      let resultText = "Vaš BSMAS rezultat je: " + totalScore + "<br>";
+      resultText += "Nivo zavisnosti: " + addictionLevel;
+
+      document.getElementById('score').innerHTML = resultText;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
